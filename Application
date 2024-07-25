@@ -1,0 +1,15 @@
+
+public class Application {
+
+	public static void main(String[] args) {
+
+		Wizard harry = new Wizard();
+		System.out.println(harry);
+		
+		
+		Wizard gandalf = new Wizard("Gandalf", 100, 0, false);
+		System.out.println(gandalf.toString());
+		
+	}//end main
+
+}//end class

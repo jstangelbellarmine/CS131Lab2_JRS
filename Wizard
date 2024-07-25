@@ -76,7 +76,7 @@ public class Wizard implements Lockable {
 		}//end setKey
 	
 	public boolean isLocked() {
-		return lock();
+		return isLocked();
 	}//end isLocked
 	
 	@Override

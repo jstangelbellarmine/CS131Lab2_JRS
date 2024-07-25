@@ -1,30 +1,16 @@
 /*
- * Lockable
+ * Lockable Interface
  * +setKey(int key): void
  * +lock(int key): void
  * +unlock(int key): void
  * +isLocked(): boolean
  */
+
 public interface Lockable {
 
-	
 	public abstract int setKey(int key);
 	public  abstract int lock( int key);
 	public  abstract int unlock(int key);
 	public abstract boolean isLocked();
-	
-	
 
 }//end interface
-
-
-/*
-
-public interface Movable {
-
-	public abstract double move(Location location);
-	//technically this is abstract. You can include "abstract" but you don't need to 
-	
-	
-}//end interface
-*/

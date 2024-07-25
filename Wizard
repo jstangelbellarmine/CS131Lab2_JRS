@@ -14,38 +14,39 @@ public class Wizard implements Lockable {
 	private int key;
 	boolean locked;
 	
-	/**
-	 * End constructor to put object into consistent state
-	 */
 	public Wizard() {
 	
-	}//end constructor
-	
+	}//end empty-argument constructor
 
-	public Wizard(String name, int health, int key, boolean locked) {
+
+	public Wizard(String name) {
 		
-		this.name = "";
-		this.health = 100;
+		this.setName(name);
+		this.setHealth(100);
 		this.key = 0;
 		this.locked = false;
-		
+
 	}//end preferred constructor
 	
 	
 	public void takeDamage(int power) {
-		if (locked= false)
-			health = (health-power);
-		else
-			health = health;
+		if (!this.isLocked()){
+			this.health -= power;
+		}//end if 
+		else {
+			System.out.println(this.name + " is Locked.");
+			
+		}//end else
 	}//end takeDamage
 	
-	//getters and setters
+	//begin getters and setters
+	
 	public String getName() {
 		return name;
 	}//end getName
 	
 	public void setName(String name) {
-		this.setName(name);
+		this.name = name;
 	}//end setName
 	
 	public int getHealth() {
@@ -63,10 +64,11 @@ public class Wizard implements Lockable {
 	public void setLocked(boolean locked) {
 		this.locked = locked;
 	}//end setLocked
+	
 //end getters/setters
 	
 	@Override
-	public  int setKey(int key) {//this tells me to use "return key" but I'm unsure
+	public  int setKey(int key) {//this tells me to use "return key" 
 		if (key>0 && key <= 0) 
 		return this.key;
 		
@@ -76,24 +78,31 @@ public class Wizard implements Lockable {
 		}//end setKey
 	
 	public boolean isLocked() {
-		return isLocked();
+		return locked;
+		
 	}//end isLocked
 	
 	@Override
 	public int lock(int key) {
-		if (this.key == key)
-		return locked=true;
-		else 
-			locked=false;
-	}
+	    if (this.key == key) {
+	        locked = true;
+	        return 1; // Indicating the lock was successful
+	    } else {
+	        locked = false;
+	        return 0; // Indicating the lock failed
+	    }
+	}//end lock
 	
 	@Override
 	public int unlock(int key) {
-		if (this.key == key)
-			return locked=false;
-		else
-		return this.unlock(key);
-	}
+		if (this.key == key) {
+			locked = false;
+			return 1;
+		} else {
+			 locked=false;
+			 return 0;
+		}
+	}//end unlock
 	
 	@Override
 	public String toString() {

@@ -33,14 +33,16 @@ public class Wizard implements Lockable {
 	
 	
 	public void takeDamage(int power) {
-		health = (health-power);
+		if (locked= false)
+			health = (health-power);
+		else
+			health = health;
 	}//end takeDamage
 	
+	//getters and setters
 	public String getName() {
 		return name;
-	
 	}//end getName
-	
 	
 	public void setName(String name) {
 		this.setName(name);
@@ -57,50 +59,45 @@ public class Wizard implements Lockable {
 	public int getKey() {
 		return key;
 	}//end getKey
-	
-	public boolean isLocked() {
-		return locked;
-	}//end isLocked
 
 	public void setLocked(boolean locked) {
 		this.locked = locked;
 	}//end setLocked
-
+//end getters/setters
+	
+	@Override
+	public  int setKey(int key) {//this tells me to use "return key" but I'm unsure
+		if (key>0 && key <= 0) 
+		return this.key;
+		
+		else 
+			key = 0;
+			return key;
+		}//end setKey
+	
+	public boolean isLocked() {
+		return lock();
+	}//end isLocked
+	
+	@Override
+	public int lock(int key) {
+		if (this.key == key)
+		return locked=true;
+		else 
+			locked=false;
+	}
+	
+	@Override
+	public int unlock(int key) {
+		if (this.key == key)
+			return locked=false;
+		else
+		return this.unlock(key);
+	}
+	
 	@Override
 	public String toString() {
 		return "Wizard [name=" + name + ", health=" + health + ", key=" + key + ", locked=" + locked + "]";
 	}//end toString
-	
-//not sure about next two things?
-	@Override
-	public int lock(int key) {
-		return this.lock(key);
-	}
-
-	@Override
-	public int unlock(int key) {
-		return this.unlock(key);
-	}
-
-	@Override
-	public  int setKey(int key) {//this tells me to use "return key" but I'm unsure
-		if (key>0 && key <= 0) 
-		return key;
-		
-		else 
-			this.key = 0;
-		}//end setKey
-	
-	public boolean isLocked() {
-		return this.isLocked();
-	}//end isLocked
-	
-	public int lock() {
-		if (key == this.key)
-			
-	}
-	
-	
-
 	
 }//end class

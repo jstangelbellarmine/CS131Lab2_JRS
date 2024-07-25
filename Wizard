@@ -1,0 +1,106 @@
+/*
+ * Wizard Class
+ * Attributes:
+ * -name: String
+ * -health: int
+ * -key: int
+ * -locked: boolean
+ */
+
+public class Wizard implements Lockable {
+	
+	private String name;
+	private int health;
+	private int key;
+	boolean locked;
+	
+	/**
+	 * End constructor to put object into consistent state
+	 */
+	public Wizard() {
+	
+	}//end constructor
+	
+
+	public Wizard(String name, int health, int key, boolean locked) {
+		
+		this.name = "";
+		this.health = 100;
+		this.key = 0;
+		this.locked = false;
+		
+	}//end preferred constructor
+	
+	
+	public void takeDamage(int power) {
+		health = (health-power);
+	}//end takeDamage
+	
+	public String getName() {
+		return name;
+	
+	}//end getName
+	
+	
+	public void setName(String name) {
+		this.setName(name);
+	}//end setName
+	
+	public int getHealth() {
+		return health;
+	}//end getHealth
+
+	public void setHealth(int health) {
+		this.health = health;
+	}//end setHealth
+	
+	public int getKey() {
+		return key;
+	}//end getKey
+	
+	public boolean isLocked() {
+		return locked;
+	}//end isLocked
+
+	public void setLocked(boolean locked) {
+		this.locked = locked;
+	}//end setLocked
+
+	@Override
+	public String toString() {
+		return "Wizard [name=" + name + ", health=" + health + ", key=" + key + ", locked=" + locked + "]";
+	}//end toString
+	
+//not sure about next two things?
+	@Override
+	public int lock(int key) {
+		return this.lock(key);
+	}
+
+	@Override
+	public int unlock(int key) {
+		return this.unlock(key);
+	}
+
+	@Override
+	public  int setKey(int key) {//this tells me to use "return key" but I'm unsure
+		if (key>0 && key <= 0) 
+		return key;
+		
+		else 
+			this.key = 0;
+		}//end setKey
+	
+	public boolean isLocked() {
+		return this.isLocked();
+	}//end isLocked
+	
+	public int lock() {
+		if (key == this.key)
+			
+	}
+	
+	
+
+	
+}//end class

@@ -3,13 +3,19 @@ public class Application {
 
 	public static void main(String[] args) {
 
-		Wizard harry = new Wizard();
-		System.out.println(harry);
 		
+		Wizard wizard = new Wizard("Harry Potter");
+		wizard.takeDamage(40);
+		System.out.println(wizard.toString());
 		
-		Wizard gandalf = new Wizard("Gandalf", 100, 0, false);
+	
+		
+		Wizard gandalf = new Wizard("Gandalf");
+		gandalf.setLocked(true);
+		gandalf.takeDamage(60);
 		System.out.println(gandalf.toString());
-		
-	}//end main
+
+	}//end main 
+
 
 }//end class
